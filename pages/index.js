@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import {api} from '../services/api'
 import { useEffect, useState } from 'react'
+
+import Issue from '../components/Issue'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -12,7 +14,7 @@ export default function Home() {
   }, [])
 
   async function getData() {
-    const response = await api.get('/users/guipolive');
+    const response = await api.get('/repos/frontendbr/vagas/issues');
     console.log(response.data);
   }
 
@@ -23,9 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <p>oi</p>
-
-    
+      <Issue />
     </div>
   )
 }
